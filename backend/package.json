@@ -1,0 +1,51 @@
+{
+  "name": "final",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./web/assets/css/styles.css -o ./web/assets/css/tailwind.css --minify",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
+    "chart.js": "^4.4.4",
+    "compression": "^1.7.4",
+    "const": "^1.0.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "csurf": "^1.10.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "express-rate-limit": "^7.4.1",
+    "express-session": "^1.18.0",
+    "express-validator": "^7.2.0",
+    "firebase-admin": "^12.6.0",
+    "fs": "^0.0.1-security",
+    "helmet": "^8.0.0",
+    "js-cookie": "^3.0.5",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.9.0",
+    "mongoose": "^8.7.0",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.15",
+    "nodemon": "^3.1.7",
+    "openai": "^4.67.1",
+    "qrcode": "^1.5.4",
+    "rotating-file-stream": "^3.2.5",
+    "speakeasy": "^2.0.0",
+    "winston": "^3.15.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13"
+  }
+}
