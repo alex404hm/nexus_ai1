@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExamPrep AI</title>
+    <link href="/assets/css/tailwind.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6D28D9',
+                        secondary: '#10B981',
+                        accent: '#F59E0B',
+                        dark: '#1F2937',
+                        darker: '#111827',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-darker text-gray-200 min-h-screen flex flex-col">
+
+    <!-- Navbar -->
+    <nav class="bg-dark shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold text-primary">ExamPrep<span class="text-secondary">AI</span></a>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="index.html" class="text-gray-300 hover:text-primary transition">Home</a>
+                    <a href="#projects" class="text-gray-300 hover:text-primary transition">Projects</a>
+                    <a href="#" class="text-gray-300 hover:text-primary transition">Tools</a>
+                    <a href="#" class="text-gray-300 hover:text-primary transition">About</a>
+                    <div class="relative group">
+                        <button class="text-gray-300 hover:text-primary transition">Resources</button>
+                        <div class="absolute left-0 mt-2 w-48 bg-dark rounded-md shadow-lg hidden group-hover:block">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-primary hover:text-white">Documentation</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-primary hover:text-white">API</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-primary hover:text-white">Community</a>
+                        </div>
+                    </div>
+                    <a href="#" class="bg-primary text-white px-4 py-2 rounded-full hover:bg-purple-700 transition">Get Started</a>
+                </div>
+                <button id="nav-toggle" class="md:hidden focus:outline-none">
+                    <i class="fas fa-bars text-2xl text-primary"></i>
+                </button>
+            </div>
+        </div>
+        <div id="nav-menu" class="hidden md:hidden bg-dark pb-4">
+            <a href="index.html" class="block px-4 py-2 hover:bg-primary hover:text-white transition">Home</a>
+            <a href="#projects" class="block px-4 py-2 hover:bg-primary hover:text-white transition">Projects</a>
+            <a href="#" class="block px-4 py-2 hover:bg-primary hover:text-white transition">Tools</a>
+            <a href="#" class="block px-4 py-2 hover:bg-primary hover:text-white transition">About</a>
+            <a href="#" class="block px-4 py-2 hover:bg-primary hover:text-white transition">Resources</a>
+            <a href="#" class="block px-4 py-2 bg-primary text-white hover:bg-purple-700 transition mt-2">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto max-w-lg p-6 bg-darker text-gray-200 shadow-lg rounded-lg mt-10">
+        <!-- Form -->
+        <div class="mb-8">
+            <label for="subject" class="block mb-2 text-lg font-semibold text-gray-300">Enter your subject:</label>
+            <input type="text" id="subject" placeholder="Enter subject here..." 
+                   class="w-full p-3 bg-dark border border-gray-700 rounded-md focus:border-primary focus:ring-2 focus:ring-primary">
+        </div>
+
+        <div class="mb-8">
+            <label for="difficulty" class="block mb-2 text-lg font-semibold text-gray-300">Select difficulty:</label>
+            <select id="difficulty" 
+                    class="w-full p-3 bg-dark border border-gray-700 rounded-md focus:border-primary focus:ring-2 focus:ring-primary">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
+
+        <div class="mb-8">
+            <button onclick="generateExam()" 
+                    class="w-full bg-primary text-white py-3 rounded-md hover:bg-purple-700 transition-all duration-300">
+                Generate Practice Exam
+            </button>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loading-spinner" class="hidden flex justify-center items-center mb-8">
+            <i class="fas fa-spinner fa-spin text-primary text-3xl"></i>
+        </div>
+
+        <!-- Results -->
+        <div class="results bg-dark p-6 rounded-md shadow-md mt-8">
+            <h2 class="text-2xl font-bold text-primary mb-4">Practice Exam</h2>
+            <div id="exam-content" class="text-lg text-gray-300">The practice exam will be displayed here.</div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-darker text-gray-400 text-center py-6 mt-10">
+        <p>&copy; 2023 ExamPrep AI. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        async function generateExam() {
+            const subject = document.getElementById('subject').value.trim();
+            const difficulty = document.getElementById('difficulty').value;
+            const examContentElement = document.getElementById('exam-content');
+            const loadingSpinner = document.getElementById('loading-spinner');
+            
+            if (!subject || !difficulty) {
+                examContentElement.innerHTML = "<p class='text-red-500'>Please enter a subject and select a difficulty.</p>";
+                return;
+            }
+
+            examContentElement.innerHTML = "";
+            loadingSpinner.classList.remove('hidden');
+
+            try {
+                const response = await fetch('https://api.example.com/generate-exam', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ subject, difficulty })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    const examContent = data.examContent || "No exam found.";
+                    examContentElement.innerHTML = formatExamContent(examContent);
+                } else {
+                    examContentElement.innerHTML = `<p class='text-red-500'>${data.error || "An error occurred. Please try again later."}</p>`;
+                }
+            } catch (error) {
+                examContentElement.innerHTML = "<p class='text-red-500'>An error occurred. Check your internet connection and try again.</p>";
+            } finally {
+                loadingSpinner.classList.add('hidden');
+            }
+        }
+
+        function formatExamContent(content) {
+            // Example formatting function, customize as needed
+            return content.split('\n').map(line => `<p class='mb-2'>${line}</p>`).join('');
+        }
+
+        // Navbar toggle functionality
+        document.getElementById('nav-toggle').addEventListener('click', function() {
+            document.getElementById('nav-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>

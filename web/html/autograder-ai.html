@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="da" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoGrader AI</title>
+    <link href="/assets/css/tailwind.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6D28D9',
+                        secondary: '#10B981',
+                        accent: '#F59E0B',
+                        dark: '#1F2937',
+                        darker: '#111827',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hidden-section {
+            display: none;
+        }
+
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body class="bg-darker text-gray-200 min-h-screen flex flex-col smooth-scroll">
+
+    <!-- Navbar -->
+    <nav class="bg-dark shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold text-primary">AutoGrader<span class="text-secondary">AI</span></a>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="index.html" class="text-gray-300 hover:text-primary transition">Hjem</a>
+                    <a href="#projects" class="text-gray-300 hover:text-primary transition">Projekter</a>
+                    <a href="#" class="text-gray-300 hover:text-primary transition">Værktøjer</a>
+                    <a href="#" class="text-gray-300 hover:text-primary transition">Om os</a>
+                    <div class="relative group">
+                        <button class="text-gray-300 hover:text-primary transition">Ressourcer</button>
+                        <div class="absolute left-0 mt-2 w-48 bg-dark rounded-md shadow-lg hidden group-hover:block">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-primary hover:text-white">Dokumentation</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-primary hover:text-white">API</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-primary hover:text-white">Community</a>
+                        </div>
+                    </div>
+                    <a href="#" class="bg-primary text-white px-4 py-2 rounded-full hover:bg-purple-700 transition">Kom i gang</a>
+                </div>
+                <button id="nav-toggle" class="md:hidden focus:outline-none">
+                    <i class="fas fa-bars text-2xl text-primary"></i>
+                </button>
+            </div>
+        </div>
+        <div id="nav-menu" class="hidden md:hidden bg-dark pb-4">
+            <a href="index.html" class="block px-4 py-2 hover:bg-primary hover:text-white transition">Hjem</a>
+            <a href="#projects" class="block px-4 py-2 hover:bg-primary hover:text-white transition">Projekter</a>
+            <a href="#" class="block px-4 py-2 hover:bg-primary hover:text-white transition">Værktøjer</a>
+            <a href="#" class="block px-4 py-2 hover:bg-primary hover:text-white transition">Om os</a>
+            <a href="#" class="block px-4 py-2 hover:bg-primary hover:text-white transition">Ressourcer</a>
+            <a href="#" class="block px-4 py-2 bg-primary text-white hover:bg-purple-700 transition mt-2">Kom i gang</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- Upload Area -->
+        <section id="upload-section" class="bg-darker p-8 rounded-lg shadow-lg mb-12">
+            <h2 class="text-3xl font-semibold text-primary mb-6">Upload opgaver</h2>
+            <p class="text-gray-400 mb-4">Vælg de opgaver, du vil uploade til AutoGrader AI, så systemet kan analysere dem.</p>
+            <input type="file" id="assignment-upload" multiple class="block w-full text-gray-300 mb-6 p-3 border border-gray-700 rounded-md focus:ring-2 focus:ring-primary">
+            <button onclick="uploadAssignments()" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition">Upload</button>
+            <p id="upload-status" class="mt-4 text-sm text-gray-500"></p>
+        </section>
+
+        <!-- Grading Criteria Setup -->
+        <section id="criteria-section" class="bg-darker p-8 rounded-lg shadow-lg mb-12 hidden-section">
+            <h2 class="text-3xl font-semibold text-primary mb-6">Indstil bedømmelseskriterier</h2>
+            <p class="text-gray-400 mb-4">Angiv navn, beskrivelse og vægtning af kriterierne for bedømmelse.</p>
+            <input type="text" id="criteria-name" placeholder="Kriteriets navn" class="block w-full p-3 mb-6 border border-gray-700 rounded-md focus:ring-2 focus:ring-primary">
+            <textarea id="criteria-description" rows="3" placeholder="Beskrivelse af kriterier" class="block w-full p-3 mb-6 border border-gray-700 rounded-md focus:ring-2 focus:ring-primary"></textarea>
+            <input type="number" id="criteria-weight" placeholder="Vægtning (%)" class="block w-full p-3 mb-6 border border-gray-700 rounded-md focus:ring-2 focus:ring-primary">
+            <button onclick="saveCriteria()" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition">Gem kriterier</button>
+            <p id="criteria-status" class="mt-4 text-sm text-gray-500"></p>
+        </section>
+
+        <!-- Class Performance Section -->
+        <section class="bg-darker p-8 rounded-lg shadow-lg">
+            <h2 class="text-3xl font-semibold text-primary mb-6">Klassens præstationsstatistikker</h2>
+            <div class="w-full h-64 bg-dark rounded-lg flex items-center justify-center" id="performance-chart">
+                <p class="text-gray-300">Diagram bliver indlæst...</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-darker text-gray-400 py-12 mt-auto">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-2xl font-bold mb-4">AutoGrader<span class="text-primary">AI</span></h4>
+                    <p>Effektiv bedømmelse med AI-teknologi, der hjælper undervisere og institutioner.</p>
+                </div>
+                <div>
+                    <h5 class="text-xl font-semibold mb-4 text-white">Hurtige links</h5>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="hover:text-primary transition">Hjem</a></li>
+                        <li><a href="#projects" class="hover:text-primary transition">Projekter</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Værktøjer</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Om os</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-xl font-semibold mb-4 text-white">Ressourcer</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary transition">Dokumentation</a></li>
+                        <li><a href="#" class="hover:text-primary transition">API</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Community</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-xl font-semibold mb-4 text-white">Forbind</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary transition"><i class="fab fa-twitter text-2xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition"><i class="fab fa-linkedin text-2xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition"><i class="fab fa-github text-2xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition"><i class="fab fa-discord text-2xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p>&copy; 2024 AutoGrader AI. Alle rettigheder forbeholdes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const chart = document.getElementById('performance-chart');
+            chart.innerHTML = '<p class="text-gray-300">Diagram bliver indlæst...</p>';
+        });
+
+        function uploadAssignments() {
+            const files = document.getElementById('assignment-upload').files;
+            const uploadStatus = document.getElementById('upload-status');
+
+            if (files.length > 0) {
+                uploadStatus.textContent = `${files.length} opgaver uploadet!`;
+                document.getElementById('upload-section').classList.add('hidden-section');
+                document.getElementById('criteria-section').classList.remove('hidden-section');
+            } else {
+                uploadStatus.textContent = 'Vælg venligst filer at uploade.';
+            }
+        }
+
+        function saveCriteria() {
+            const name = document.getElementById('criteria-name').value;
+            const description = document.getElementById('criteria-description').value;
+            const weight = document.getElementById('criteria-weight').value;
+            const criteriaStatus = document.getElementById('criteria-status');
+
+            if (name && description && weight) {
+                criteriaStatus.textContent = 'Bedømmelseskriterier gemt!';
+            } else {
+                criteriaStatus.textContent = 'Udfyld venligst alle felter.';
+            }
+        }
+
+        // Navbar toggle functionality
+        document.getElementById('nav-toggle').addEventListener('click', function () {
+            document.getElementById('nav-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>
+
+

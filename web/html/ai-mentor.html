@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIChat - Powered by OpenAI</title>
+    <link href="/assets/css/tailwind.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10B981',
+                        secondary: '#3B82F6',
+                        dark: '#1F2937',
+                        darker: '#111827',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .chat-container {
+            height: calc(100vh - 10rem);
+        }
+
+        .messages-container {
+            height: calc(100% - 5rem);
+            overflow-y: auto;
+        }
+
+        .messages-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .messages-container::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+
+        .message-enter {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: messageFadeIn 0.4s ease-in-out forwards;
+        }
+
+        @keyframes messageFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .input-focus {
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.3);
+        }
+
+        .nav-toggle-open .fa-bars {
+            transform: rotate(90deg);
+            transition: transform 0.3s;
+        }
+
+        .nav-toggle-close .fa-bars {
+            transform: rotate(0);
+            transition: transform 0.3s;
+        }
+
+        .footer-social a {
+            margin-right: 8px;
+        }
+
+        .footer-social a:hover {
+            color: #10B981;
+        }
+    </style>
+</head>
+
+<body class="bg-darker text-gray-200 flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-dark shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold text-primary">AI<span class="text-secondary">Chat</span></a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#" class="text-gray-300 hover:text-primary transition">Docs</a>
+                <a href="#" class="text-gray-300 hover:text-primary transition">API</a>
+                <a href="#" class="text-gray-300 hover:text-primary transition">About</a>
+                <button id="theme-toggle" class="text-gray-300 hover:text-primary transition">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <button id="nav-toggle" class="md:hidden focus:outline-none">
+                <i class="fas fa-bars text-2xl text-primary"></i>
+            </button>
+        </div>
+        <div id="nav-menu" class="hidden md:hidden bg-dark pb-4">
+            <a href="#" class="block px-4 py-2 hover:bg-primary hover:text-white transition">Docs</a>
+            <a href="#" class="block px-4 py-2 hover:bg-primary hover:text-white transition">API</a>
+            <a href="#" class="block px-4 py-2 hover:bg-primary hover:text-white transition">About</a>
+        </div>
+    </nav>
+
+    <!-- Main Chat Interface -->
+    <div class="flex-grow container mx-auto px-4 py-8 chat-container">
+        <div class="bg-dark rounded-lg shadow-lg overflow-hidden flex flex-col h-full">
+            <!-- Chat Header -->
+            <div class="bg-darker p-4 border-b border-gray-700">
+                <h2 class="text-xl font-semibold text-primary">Chat with AI</h2>
+                <p class="text-sm text-gray-400">Powered by OpenAI GPT</p>
+            </div>
+
+            <!-- Messages Container -->
+            <div class="flex-grow p-4 messages-container" id="messages">
+                <!-- Messages will be dynamically added here -->
+            </div>
+
+            <!-- Input Area -->
+            <div class="p-4 border-t border-gray-700">
+                <div class="flex space-x-4 items-center">
+                    <input type="text" id="user-input" class="flex-grow px-4 py-2 bg-darker text-white rounded-full focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Type your message...">
+                    <button id="send-button" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-green-600 transition">
+                        <i class="fas fa-paper-plane mr-2"></i>Send
+                    </button>
+                </div>
+                <p id="error-message" class="text-red-500 text-sm hidden mt-2">Please type a message before sending.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-darker text-gray-400 py-6 mt-auto">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <p>&copy; 2024 AIChat. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="#" class="text-gray-300 hover:text-primary"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-gray-300 hover:text-primary"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="text-gray-300 hover:text-primary"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            themeToggle.innerHTML = html.classList.contains('dark') ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        });
+
+        // Navbar toggle functionality
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('hidden');
+            this.classList.toggle('nav-toggle-open');
+            this.classList.toggle('nav-toggle-close');
+        });
+
+        // Chat functionality
+        const messagesContainer = document.getElementById('messages');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+        const errorMessage = document.getElementById('error-message');
+
+        function addMessage(content, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `mb-4 flex ${isUser ? 'justify-end' : 'justify-start'} message-enter`;
+            const messageBubble = document.createElement('div');
+            messageBubble.className = `inline-block p-3 rounded-lg ${isUser ? 'bg-secondary text-white' : 'bg-gray-700 text-gray-200'}`;
+            messageBubble.textContent = content;
+            const timestamp = document.createElement('span');
+            timestamp.className = 'block text-xs text-gray-400 mt-1';
+            timestamp.innerText = new Date().toLocaleTimeString();
+            messageBubble.appendChild(timestamp);
+            messageDiv.appendChild(messageBubble);
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function sendMessage() {
+            const message = userInput.value.trim();
+            if (message) {
+                errorMessage.classList.add('hidden');
+                addMessage(message, true);
+                userInput.value = '';
+
+                // Simulate AI response
+                setTimeout(() => {
+                    addMessage("This is a simulated AI response. In a real implementation, this would be the response from the OpenAI API.");
+                }, 1000);
+            } else {
+                errorMessage.classList.remove('hidden');
+            }
+        }
+
+        sendButton.addEventListener('click', sendMessage);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Welcome message
+        addMessage("Welcome to AIChat! How can I assist you today?");
+    </script>
+</body>
+
+</html>

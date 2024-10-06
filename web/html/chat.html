@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordbog AI - Din intelligente sprogassistent</title>
+    <link href="/assets/css/tailwind.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="script.js" defer></script>
+    <script src="chat.js" defer></script>
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+
+    <!-- Navbar (uændret) -->
+    <!-- ... -->
+
+    <!-- Main Content -->
+    <main class="container mx-auto py-12 px-4">
+        <!-- Intelligent Tekstbehandling Sektion -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 text-center">Intelligent Tekstbehandling</h2>
+            <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6">
+                <div class="mb-4">
+                    <label for="smart-editor" class="block text-sm font-medium mb-2">Skriv eller indsæt din tekst her:</label>
+                    <div class="relative">
+                        <textarea id="smart-editor" rows="10" class="w-full p-4 border rounded-md dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="Begynd at skrive..."></textarea>
+                        <div id="suggestions-panel" class="absolute top-full left-0 w-full bg-white dark:bg-gray-700 shadow-lg rounded-md mt-2 p-4 hidden">
+                            <h3 class="text-lg font-semibold mb-2">Forslag:</h3>
+                            <ul id="suggestions-list" class="space-y-2">
+                                <!-- Forslag vil blive indsat her dynamisk -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex space-x-4">
+                    <button id="check-spelling" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md transition">
+                        <i class="fas fa-spell-check mr-2"></i>Stavekontrol
+                    </button>
+                    <button id="check-grammar" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition">
+                        <i class="fas fa-language mr-2"></i>Grammatikkontrol
+                    </button>
+                    <button id="suggest-synonyms" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md transition">
+                        <i class="fas fa-exchange-alt mr-2"></i>Foreslå Synonymer
+                    </button>
+                    <button id="analyze-sentiment" class="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-md transition">
+                        <i class="fas fa-smile mr-2"></i>Analyser Stemning
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Assistent Sektion -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 text-center">AI Sprogassistent</h2>
+            <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6">
+                <div class="mb-4">
+                    <label for="ai-query" class="block text-sm font-medium mb-2">Stil et spørgsmål til vores AI:</label>
+                    <input type="text" id="ai-query" class="w-full p-4 border rounded-md dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="F.eks.: Hvordan bruger man 'deres' korrekt?">
+                </div>
+                <button id="ask-ai" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-md transition">
+                    <i class="fas fa-robot mr-2"></i>Spørg AI
+                </button>
+                <div id="ai-response" class="mt-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-md hidden">
+                    <!-- AI-svar vil blive indsat her dynamisk -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Sprogstatistik Sektion -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 text-center">Sprogstatistik</h2>
+            <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6">
+                <div id="language-stats" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="text-center">
+                        <h3 class="text-lg font-semibold">Antal ord</h3>
+                        <p id="word-count" class="text-3xl font-bold text-blue-600 dark:text-blue-400">0</p>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-lg font-semibold">Antal sætninger</h3>
+                        <p id="sentence-count" class="text-3xl font-bold text-green-600 dark:text-green-400">0</p>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-lg font-semibold">Læsbarhed</h3>
+                        <p id="readability-score" class="text-3xl font-bold text-purple-600 dark:text-purple-400">N/A</p>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-lg font-semibold">Unikt ordforråd</h3>
+                        <p id="unique-words" class="text-3xl font-bold text-yellow-600 dark:text-yellow-400">0</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Eksisterende AI Features Sektion -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Grammar Check -->
+            <div class="bg-white dark:bg-gray-800 shadow-lg rounded-md p-6 transition-transform hover:scale-105">
+                <h2 class="text-2xl font-bold mb-4">Ret Grammatiske Fejl</h2>
+                <p class="mb-4">Lad vores AI hjælpe dig med at finde og rette grammatiske fejl i din tekst.</p>
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md transition mt-4 w-full" onclick="openModal('grammar-modal')">Tjek Grammatik</button>
+            </div>
+
+            <!-- Comma Suggestions -->
+            <div class="bg-white dark:bg-gray-800 shadow-lg rounded-md p-6 transition-transform hover:scale-105">
+                <h2 class="text-2xl font-bold mb-4">Kommasætning</h2>
+                <p class="mb-4">Få hjælp til korrekt kommasætning i dine sætninger og tekster.</p>
+                <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-md transition mt-4 w-full" onclick="openModal('comma-modal')">Foreslå Kommaer</button>
+            </div>
+
+            <!-- Word Suggestions -->
+            <div class="bg-white dark:bg-gray-800 shadow-lg rounded-md p-6 transition-transform hover:scale-105">
+                <h2 class="text-2xl font-bold mb-4">Ordforslag</h2>
+                <p class="mb-4">Få kreative og relevante ordforslag til at forbedre dit ordforråd.</p>
+                <button class="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-3 rounded-md transition mt-4 w-full" onclick="openModal('word-suggestions-modal')">Få Ordforslag</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Eksisterende modaler (uændrede) -->
+    <!-- ... -->
+
+    <!-- Ny modal til sprogstatistik -->
+    <div id="language-stats-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50" data-modal>
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg w-full max-w-lg overflow-y-auto max-h-full">
+            <h2 class="text-2xl font-bold mb-4">Detaljeret Sprogstatistik</h2>
+            <div id="detailed-stats">
+                <!-- Detaljerede statistikker vil blive indsat her dynamisk -->
+            </div>
+            <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition" data-close="language-stats-modal">Luk</button>
+        </div>
+    </div>
+
+    <footer class="bg-gray-200 dark:bg-gray-800 py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2023 Ordbog AI. Alle rettigheder forbeholdes.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simuleret funktionalitet for demonstration
+        document.addEventListener('DOMContentLoaded', function() {
+            const smartEditor = document.getElementById('smart-editor');
+            const suggestionsPanel = document.getElementById('suggestions-panel');
+            const suggestionsList = document.getElementById('suggestions-list');
+            const aiQuery = document.getElementById('ai-query');
+            const askAiButton = document.getElementById('ask-ai');
+            const aiResponse = document.getElementById('ai-response');
+
+            // Simuler ordforslag
+            smartEditor.addEventListener('input', function() {
+                if (smartEditor.value.length > 0) {
+                    suggestionsPanel.classList.remove('hidden');
+                    suggestionsList.innerHTML = `
+                        <li class="cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 p-2 rounded">Forslag 1</li>
+                        <li class="cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 p-2 rounded">Forslag 2</li>
+                        <li class="cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 p-2 rounded">Forslag 3</li>
+                    `;
+                } else {
+                    suggestionsPanel.classList.add('hidden');
+                }
+            });
+
+            // Simuler AI-svar
+            askAiButton.addEventListener('click', function() {
+                if (aiQuery.value.length > 0) {
+                    aiResponse.classList.remove('hidden');
+                    aiResponse.innerHTML = `<p>Her er et simuleret svar på dit spørgsmål: "${aiQuery.value}"</p>
+                        <p>AI-assistenten ville normalt give et detaljeret og hjælpsomt svar her.</p>`;
+                }
+            });
+
+            // Opdater sprogstatistik
+            function updateLanguageStats() {
+                const text = smartEditor.value;
+                document.getElementById('word-count').textContent = text.split(/\s+/).filter(Boolean).length;
+                document.getElementById('sentence-count').textContent = text.split(/[.!?]+/).filter(Boolean).length;
+                document.getElementById('readability-score').textContent = 'Middel'; // Dette ville normalt være baseret på en reel beregning
+                document.getElementById('unique-words').textContent = new Set(text.toLowerCase().match(/\b(\w+)\b/g)).size;
+            }
+
+            smartEditor.addEventListener('input', updateLanguageStats);
+
+            // Initialiser statistik
+            updateLanguageStats();
+        });
+    </script>
+
+</body>
+
+</html>

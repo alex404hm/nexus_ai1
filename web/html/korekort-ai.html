@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kørekort AI</title>
+    <link href="/assets/css/tailwind.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10B981',
+                        secondary: '#3B82F6',
+                        dark: '#1F2937',
+                        darker: '#111827',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .progress-bar div {
+            transition: width 0.5s ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="bg-darker text-gray-200 flex flex-col min-h-screen">
+    <!-- Navbar -->
+    <nav class="bg-dark shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold text-primary">Kørekort<span class="text-secondary">AI</span></a>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="#" class="text-gray-300 hover:text-primary transition">Docs</a>
+                    <a href="#" class="text-gray-300 hover:text-primary transition">API</a>
+                    <a href="#" class="text-gray-300 hover:text-primary transition">About</a>
+                    <button id="theme-toggle" class="text-gray-300 hover:text-primary transition">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+                <button id="nav-toggle" class="md:hidden focus:outline-none">
+                    <i class="fas fa-bars text-2xl text-primary"></i>
+                </button>
+            </div>
+        </div>
+        <div id="nav-menu" class="hidden md:hidden bg-dark pb-4">
+            <a href="#" class="block px-4 py-2 hover:bg-primary hover:text-white transition">Docs</a>
+            <a href="#" class="block px-4 py-2 hover:bg-primary hover:text-white transition">API</a>
+            <a href="#" class="block px-4 py-2 hover:bg-primary hover:text-white transition">About</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8 flex-grow">
+        <!-- Practice Test Dashboard -->
+        <section class="bg-dark p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-2xl font-semibold text-primary mb-4">Practice Test Dashboard</h2>
+            <p class="text-gray-400">Overview of test progress, scores, and upcoming tests.</p>
+        </section>
+
+        <!-- Questionnaire -->
+        <section class="bg-dark p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-2xl font-semibold text-primary mb-4">Interactive Practice Questions</h2>
+            <div class="space-y-4">
+                <div class="question">
+                    <p class="text-gray-400">Question 1: What is the speed limit in a residential area?</p>
+                    <label class="block text-gray-400"><input type="radio" name="q1" value="30" class="mr-2"> 30 km/h</label>
+                    <label class="block text-gray-400"><input type="radio" name="q1" value="50" class="mr-2"> 50 km/h</label>
+                    <label class="block text-gray-400"><input type="radio" name="q1" value="70" class="mr-2"> 70 km/h</label>
+                </div>
+                <div class="question">
+                    <p class="text-gray-400">Question 2: What should you do at a red traffic light?</p>
+                    <label class="block text-gray-400"><input type="radio" name="q2" value="Stop" class="mr-2"> Stop</label>
+                    <label class="block text-gray-400"><input type="radio" name="q2" value="Go" class="mr-2"> Go</label>
+                    <label class="block text-gray-400"><input type="radio" name="q2" value="Slow down" class="mr-2"> Slow down</label>
+                </div>
+            </div>
+            <button onclick="submitAnswers()" class="mt-4 bg-primary text-white py-2 px-4 rounded-lg hover:bg-green-600 transition">Submit Answers</button>
+        </section>
+
+        <!-- Progress Tracker -->
+        <section class="bg-dark p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-2xl font-semibold text-primary mb-4">Progress Tracker</h2>
+            <div class="progress-bar bg-gray-700 rounded-full h-6 mb-4">
+                <div id="progress-bar-fill" class="bg-primary h-full rounded-full" style="width: 0;"></div>
+            </div>
+            <p class="text-gray-400">Performance over time: <span id="progress-percentage">0%</span></p>
+        </section>
+
+        <!-- Test Analytics -->
+        <section class="bg-dark p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-2xl font-semibold text-primary mb-4">Test Analytics</h2>
+            <p class="text-gray-400">Detailed reports after each test, with recommendations for improvement.</p>
+        </section>
+
+        <!-- Study Material -->
+        <section class="bg-dark p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-2xl font-semibold text-primary mb-4">Study Material</h2>
+            <p class="text-gray-400">Access to guides, videos, and tips related to driving exams.</p>
+        </section>
+
+        <!-- Gamification -->
+        <section class="bg-dark p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-2xl font-semibold text-primary mb-4">Achievements</h2>
+            <span class="badge bg-primary text-white py-2 px-4 rounded-full mr-2 mb-2 inline-block">Completed First Test</span>
+            <span class="badge bg-primary text-white py-2 px-4 rounded-full mr-2 mb-2 inline-block">High Score</span>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-darker text-gray-400 py-4">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 Kørekort AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            if (html.classList.contains('dark')) {
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        });
+
+        // Navbar toggle functionality
+        document.getElementById('nav-toggle').addEventListener('click', function() {
+            document.getElementById('nav-menu').classList.toggle('hidden');
+        });
+
+        // Simulate answer submission and progress update
+        function submitAnswers() {
+            const progressBarFill = document.getElementById('progress-bar-fill');
+            const progressPercentage = document.getElementById('progress-percentage');
+            progressBarFill.style.width = '70%';
+            progressPercentage.innerText = '70%';
+        }
+    </script>
+</body>
+
+</html>

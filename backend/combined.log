@@ -1,0 +1,161 @@
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:22:16.708Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:22:16.985Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:23:09.882Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:23:10.380Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:23:34.400Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:23:34.708Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:23:54.294Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:23:54.572Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:25:00.070Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:25:00.582Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:25:01.121Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:25:01.441Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:26:09.992Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:26:10.369Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:26:12.184Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:26:12.490Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:35:24.170Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:35:24.688Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:35:51.676Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:35:51.956Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:35:57.899Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:35:58.237Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:36:03.663Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:36:03.949Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:36:18.361Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:36:18.657Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:36:26.022Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:36:26.334Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:36:32.759Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:36:33.078Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:40:50.092Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:40:50.532Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:40:59.167Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:40:59.469Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:41:00.513Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:41:00.830Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:41:04.192Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:41:04.484Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:44:01.344Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:44:01.812Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:44:03.603Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:44:03.909Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:44:09.615Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:44:09.902Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:45:41.428Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:45:41.961Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:48:04.450Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:48:04.975Z"}
+{"level":"info","message":"MongoDB connection closed.","service":"user-service","timestamp":"2024-10-06T17:48:23.346Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:48:31.200Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:48:31.503Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:48:54.575Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:48:54.867Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:48:59.245Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:48:59.536Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:49:01.041Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:49:01.314Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:49:06.200Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:49:06.508Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:49:07.177Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:49:07.479Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:49:09.459Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:49:09.764Z"}
+{"level":"info","message":"MongoDB connection closed.","service":"user-service","timestamp":"2024-10-06T17:56:29.134Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T17:58:55.718Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T17:58:56.219Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:03:48.796Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:03:49.557Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:11:00.315Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:11:02.679Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:11:04.984Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:11:05.286Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:11:52.474Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:11:52.768Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:12:54.827Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:12:55.270Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:12:56.403Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:12:56.707Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:12:58.400Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:12:58.713Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:13:04.042Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:13:04.357Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:23:22.673Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:23:23.423Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:23:28.435Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:23:28.739Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:24:45.545Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:24:46.097Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:24:47.249Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:24:47.542Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:24:49.508Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:24:49.815Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:24:52.625Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:24:52.907Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:24:53.756Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:24:54.035Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:24:55.224Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:24:55.502Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:25:02.858Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:25:03.168Z"}
+{"level":"info","message":"MongoDB connection closed.","service":"user-service","timestamp":"2024-10-06T18:39:16.866Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:39:53.021Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:39:53.557Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:41:10.879Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:41:11.464Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:41:53.913Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:41:54.221Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:43:06.811Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:43:07.500Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:43:26.130Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:43:26.459Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:44:02.436Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:44:02.739Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:44:08.346Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:44:08.682Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:44:11.156Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:44:11.454Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:44:16.238Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:44:16.558Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:44:37.875Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:44:38.176Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:51:08.822Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:51:09.331Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:51:42.022Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:51:42.328Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:51:50.547Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:51:50.870Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:53:12.733Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"user-service","timestamp":"2024-10-06T18:53:13.283Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:54:48.708Z"}
+{"level":"info","message":"MongoDB connected successfully.","service":"user-service","timestamp":"2024-10-06T18:54:49.240Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:55:50.126Z"}
+{"level":"info","message":"MongoDB connected successfully.","service":"user-service","timestamp":"2024-10-06T18:55:50.420Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:56:05.042Z"}
+{"level":"info","message":"MongoDB connected successfully.","service":"user-service","timestamp":"2024-10-06T18:56:05.349Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:56:26.762Z"}
+{"level":"info","message":"MongoDB connected successfully.","service":"user-service","timestamp":"2024-10-06T18:56:27.079Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T18:57:54.412Z"}
+{"level":"info","message":"MongoDB connected successfully.","service":"user-service","timestamp":"2024-10-06T18:57:54.919Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T19:00:19.194Z"}
+{"level":"info","message":"MongoDB connected successfully.","service":"user-service","timestamp":"2024-10-06T19:00:19.737Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T19:01:40.894Z"}
+{"level":"info","message":"MongoDB connected successfully.","service":"user-service","timestamp":"2024-10-06T19:01:41.418Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T19:01:56.548Z"}
+{"level":"info","message":"MongoDB connected successfully.","service":"user-service","timestamp":"2024-10-06T19:01:56.968Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T19:02:53.994Z"}
+{"level":"info","message":"MongoDB connected successfully.","service":"user-service","timestamp":"2024-10-06T19:02:54.306Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T19:03:15.646Z"}
+{"level":"info","message":"MongoDB connected successfully.","service":"user-service","timestamp":"2024-10-06T19:03:15.941Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T19:03:27.451Z"}
+{"level":"info","message":"MongoDB connected successfully.","service":"user-service","timestamp":"2024-10-06T19:03:27.755Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T19:03:30.329Z"}
+{"level":"info","message":"MongoDB connected successfully.","service":"user-service","timestamp":"2024-10-06T19:03:30.739Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T19:04:09.005Z"}
+{"level":"info","message":"MongoDB connected successfully.","service":"user-service","timestamp":"2024-10-06T19:04:09.297Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T19:04:18.834Z"}
+{"level":"info","message":"MongoDB connected successfully.","service":"user-service","timestamp":"2024-10-06T19:04:19.130Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T19:04:21.175Z"}
+{"level":"info","message":"MongoDB connected successfully.","service":"user-service","timestamp":"2024-10-06T19:04:21.461Z"}
+{"level":"info","message":"Server running on port 3000","service":"user-service","timestamp":"2024-10-06T19:04:25.678Z"}
+{"level":"info","message":"MongoDB connected successfully.","service":"user-service","timestamp":"2024-10-06T19:04:26.157Z"}

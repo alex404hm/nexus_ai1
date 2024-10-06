@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI Nexus - Free Tools Page">
+    <title>AI Nexus Free Tools</title>
+
+    <!-- Preload critical assets -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.rel='stylesheet'">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Custom Style -->
+    <style>
+        /* Color Scheme */
+        :root {
+            --primary-bg: radial-gradient(circle, rgba(99, 102, 241, 1) 0%, rgba(45, 55, 72, 1) 50%, rgba(17, 24, 39, 1) 100%);
+            --sidebar-bg: #1f2937;
+            --hover-bg: #4338ca;
+            --text-color: #fff;
+            --accent-color: #4338ca;
+            --box-bg: #2d3748;
+            --box-hover-bg: rgba(67, 56, 202, 0.8);
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            background: var(--primary-bg);
+            color: var(--text-color);
+        }
+
+        #sidebar {
+            transition: transform 0.3s ease-in-out;
+            background-color: var(--sidebar-bg);
+            will-change: transform;
+        }
+
+        .sidebar-link {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            background-color: var(--hover-bg);
+            color: var(--text-color);
+        }
+
+        /* Tools Section */
+        .tools-box {
+            background: var(--box-bg);
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--box-shadow);
+            text-align: left;
+        }
+
+        .tools-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            background: var(--box-hover-bg);
+        }
+
+        .tools-icon {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tools-box h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .tools-box p {
+            color: #cbd5e0;
+        }
+
+        .tools-box a {
+            color: #a78bfa;
+            text-decoration: underline;
+        }
+
+        /* Responsive Layout */
+        @media (max-width: 1024px) {
+            #main-content {
+                margin-left: 0;
+            }
+
+            #sidebar {
+                transform: translateX(-100%);
+            }
+
+            #sidebar.show {
+                transform: translateX(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-r from-gray-900 via-purple-800 to-black text-gray-200">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="w-64 py-7 px-4 fixed inset-y-0 left-0 z-20 overflow-y-auto transition-transform duration-300 ease-in-out rounded-r-lg">
+            <header class="flex justify-between items-center">
+                <a href="#" class="text-white text-2xl font-bold flex items-center">
+                    <i class="fas fa-robot w-8 h-8 mr-3"></i> AI<span class="text-indigo-500">Nexus</span> Pro
+                </a>
+                <button id="sidebar-toggle" class="text-gray-300 hover:text-white focus:outline-none md:hidden" aria-label="Toggle Sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </header>
+            <nav class="mt-10" aria-label="Sidebar Navigation">
+                <ul>
+                    <li><a href="/dashboard" class="sidebar-link flex items-center px-4 py-2 rounded-md transition-all"><i class="fas fa-tachometer-alt mr-3"></i> Dashboard</a></li>
+                    <li><a href="/shop" class="sidebar-link flex items-center px-4 py-2 rounded-md transition-all"><i class="fas fa-store mr-3"></i> Shop</a></li>
+                    <li><a href="/faq-support" class="sidebar-link flex items-center px-4 py-2 rounded-md transition-all"><i class="fas fa-life-ring mr-3"></i> FAQ & Support</a></li>
+                    <li><a href="/forum" class="sidebar-link flex items-center px-4 py-2 rounded-md transition-all"><i class="fas fa-comments mr-3"></i> Forum</a></li>
+                    <li><a href="/free-tools" class="sidebar-link flex items-center px-4 py-2 rounded-md transition-all active"><i class="fas fa-tools mr-3"></i> Free Tools</a></li>
+                    <li><a href="/claim" class="sidebar-link flex items-center px-4 py-2 rounded-md transition-all"><i class="fas fa-gift mr-3"></i> Claim</a></li>
+                    <li><a href="/settings" class="sidebar-link flex items-center px-4 py-2 rounded-md transition-all"><i class="fas fa-cog mr-3"></i> Settings</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main id="main-content" class="flex-1 ml-64 bg-black bg-opacity-70 p-6 transition-all duration-300 fade-in">
+            <!-- Header -->
+            <header class="sticky top-0 bg-gray-800 p-4 shadow-lg z-10 flex justify-between items-center rounded-b-lg">
+                <div>
+                    <h1 id="welcome-message" class="text-3xl font-semibold text-white">Free AI Tools</h1>
+                    <p class="text-sm text-gray-400">Explore and use a variety of free tools to enhance your AI projects.</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <input type="search" placeholder="Search tools..." class="rounded-lg py-2 pl-10 pr-4 bg-gray-700 text-gray-300 focus:ring-2 focus:ring-indigo-500 outline-none" aria-label="Search">
+                        <span class="absolute left-3 top-2.5 text-gray-400"><i class="fas fa-search"></i></span>
+                    </div>
+                    <button id="theme-toggle" class="text-gray-300 hover:text-white focus:outline-none" aria-label="Toggle Dark Mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="relative text-gray-300 hover:text-white focus:outline-none" id="notification-btn" aria-label="Notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="absolute top-0 right-0 block h-2 w-2 rounded-full bg-red-500"></span>
+                    </button>
+                    <div class="relative">
+                        <button id="user-menu-button" class="flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500" aria-expanded="false" aria-haspopup="true">
+                            <img class="h-8 w-8 rounded-full" src="https://via.placeholder.com/40" alt="User avatar" loading="lazy">
+                        </button>
+                        <div id="user-menu" class="absolute bg-gray-800 rounded-lg shadow-lg w-48 mt-2 hidden right-0" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-indigo-600 hover:text-white" role="menuitem">Profile</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-indigo-600 hover:text-white" role="menuitem">Account Settings</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-indigo-600 hover:text-white" role="menuitem">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Free Tools Section -->
+            <section id="tools-section" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-6">
+                <!-- Tool 1: Text Summarizer -->
+                <div class="tools-box">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg font-semibold">Text Summarizer</h2>
+                        <div class="tools-icon">
+                            <i class="fas fa-align-left text-white"></i>
+                        </div>
+                    </div>
+                    <p>Summarize lengthy texts and documents in seconds.</p>
+                    <a href="/tools/summarizer" class="text-indigo-400 underline">Try the Summarizer</a>
+                </div>
+
+                <!-- Tool 2: Sentiment Analyzer -->
+                <div class="tools-box">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg font-semibold">Sentiment Analyzer</h2>
+                        <div class="tools-icon">
+                            <i class="fas fa-smile text-white"></i>
+                        </div>
+                    </div>
+                    <p>Analyze the sentiment behind text content.</p>
+                    <a href="/tools/sentiment" class="text-indigo-400 underline">Analyze Sentiment</a>
+                </div>
+
+                <!-- Tool 3: AI Code Generator -->
+                <div class="tools-box">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg font-semibold">AI Code Generator</h2>
+                        <div class="tools-icon">
+                            <i class="fas fa-code text-white"></i>
+                        </div>
+                    </div>
+                    <p>Generate code snippets based on simple descriptions.</p>
+                    <a href="/tools/code-generator" class="text-indigo-400 underline">Generate Code</a>
+                </div>
+
+                <!-- Tool 4: Language Translator -->
+                <div class="tools-box">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg font-semibold">Language Translator</h2>
+                        <div class="tools-icon">
+                            <i class="fas fa-language text-white"></i>
+                        </div>
+                    </div>
+                    <p>Translate text into multiple languages in real-time.</p>
+                    <a href="/tools/translator" class="text-indigo-400 underline">Use Translator</a>
+                </div>
+
+                <!-- Tool 5: Ordbog AI -->
+                <div class="tools-box">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg font-semibold">Ordbog AI</h2>
+                        <div class="tools-icon">
+                            <i class="fas fa-book text-white"></i>
+                        </div>
+                    </div>
+                    <p>Find definitions and explanations for complex terms.</p>
+                    <a href="/tools/ordbog-ai" class="text-indigo-400 underline">Explore Ordbog AI</a>
+                </div>
+
+                <!-- Tool 6: Word AI -->
+                <div class="tools-box">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg font-semibold">Word AI</h2>
+                        <div class="tools-icon">
+                            <i class="fas fa-file-alt text-white"></i>
+                        </div>
+                    </div>
+                    <p>Improve your writing with advanced AI suggestions.</p>
+                    <a href="/tools/word-ai" class="text-indigo-400 underline">Try Word AI</a>
+                </div>
+
+                <!-- Tool 7: Tegnsætning (Punctuation) -->
+                <div class="tools-box">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg font-semibold">Tegnsætning</h2>
+                        <div class="tools-icon">
+                            <i class="fas fa-pencil-alt text-white"></i>
+                        </div>
+                    </div>
+                    <p>Automatically correct punctuation in your text.</p>
+                    <a href="/tools/tegnsætning" class="text-indigo-400 underline">Correct Punctuation</a>
+                </div>
+
+                <!-- Tool 8: Idea Generator -->
+                <div class="tools-box">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg font-semibold">Idea Generator</h2>
+                        <div class="tools-icon">
+                            <i class="fas fa-lightbulb text-white"></i>
+                        </div>
+                    </div>
+                    <p>Get creative AI-generated ideas for projects.</p>
+                    <a href="/tools/idea-generator" class="text-indigo-400 underline">Generate Ideas</a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- External JS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="assets/js/dashboard.js"></script>
+    <script>
+        // Sidebar Toggle
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('main-content');
+
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('show');
+            mainContent.classList.toggle('ml-0');
+            mainContent.classList.toggle('ml-64');
+        });
+
+        // User Menu Toggle
+        const userMenuButton = document.getElementById('user-menu-button');
+        const userMenu = document.getElementById('user-menu');
+
+        userMenuButton.addEventListener('click', () => {
+            const expanded = userMenuButton.getAttribute('aria-expanded') === 'true' || false;
+            userMenuButton.setAttribute('aria-expanded', !expanded);
+            userMenu.classList.toggle('hidden');
+        });
+
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            const isDark = body.classList.contains('dark');
+            themeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            themeToggle.setAttribute('aria-label', isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode');
+        });
+
+        // Set welcome message with username
+        const userName = 'Alexander'; // You can dynamically fetch this in a real app
+        document.getElementById('welcome-message').textContent = `Welcome, ${userName}`;
+    </script>
+</body>
+</html>

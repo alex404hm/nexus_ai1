@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordbog AI - Din intelligente sprogassistent</title>
+    <link href="/assets/css/tailwind.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300 h-screen flex flex-col">
+    <!-- Navbar -->
+    <nav class="bg-blue-600 dark:bg-gray-800 py-4 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <a href="#" class="text-2xl font-bold text-white flex items-center">
+                <i class="fas fa-book-open mr-2"></i> Ordbog AI
+            </a>
+            <ul class="hidden md:flex space-x-8">
+                <li><a href="#features" class="hover:bg-blue-500 hover:text-white transition px-3 py-2 rounded-md">Features</a></li>
+                <li><a href="#" class="hover:bg-blue-500 hover:text-white transition px-3 py-2 rounded-md">Om os</a></li>
+                <li><a href="#" id="open-chat" class="hover:bg-blue-500 hover:text-white transition px-3 py-2 rounded-md">Chat med AI</a></li>
+                <li><a href="#" id="open-quiz" class="hover:bg-blue-500 hover:text-white transition px-3 py-2 rounded-md">Sprogquiz</a></li>
+            </ul>
+            <div class="flex items-center space-x-4">
+                <select id="language-select" class="bg-blue-500 text-white p-2 rounded-md">
+                    <option value="da">Dansk</option>
+                    <option value="en">English</option>
+                    <option value="de">Deutsch</option>
+                </select>
+                <button id="user-profile" class="text-white hover:bg-blue-500 hover:text-white transition p-2 rounded-md" aria-label="User Profile">
+                    <i class="fas fa-user-circle text-2xl"></i>
+                </button>
+                <button id="dark-mode-button" class="p-2 rounded-md focus:outline-none text-white" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="mobile-menu-button" class="p-2 rounded-md focus:outline-none text-white md:hidden" aria-label="Toggle mobile menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden mobile-menu bg-blue-600 p-4">
+            <ul class="flex flex-col space-y-4">
+                <li><a href="#features" class="hover:bg-blue-500 hover:text-white transition px-3 py-2 rounded-md">Features</a></li>
+                <li><a href="#" class="hover:bg-blue-500 hover:text-white transition px-3 py-2 rounded-md">Om os</a></li>
+                <li><a href="#" id="open-chat-mobile" class="hover:bg-blue-500 hover:text-white transition px-3 py-2 rounded-md">Chat med AI</a></li>
+                <li><a href="#" id="open-quiz-mobile" class="hover:bg-blue-500 hover:text-white transition px-3 py-2 rounded-md">Sprogquiz</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center z-50 hidden">
+        <div class="border-4 border-gray-300 border-t-4 border-t-blue-500 rounded-full w-12 h-12 animate-spin"></div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 flex-grow flex flex-col items-center justify-start pt-8">
+        <section id="word-of-the-day" class="w-full max-w-2xl mb-8">
+            <h2 class="text-xl font-bold mb-2">Dagens ord:</h2>
+            <p id="wotd-word" class="text-2xl font-bold"></p>
+            <p id="wotd-definition" class="mt-2"></p>
+        </section>
+
+        <section class="w-full max-w-2xl mb-8">
+            <div class="bg-white dark:bg-gray-800 shadow-lg rounded-md p-6 space-y-4 relative">
+                <h2 class="text-2xl font-bold text-center mb-4">Udforsk sproget med AI-assistance</h2>
+                <div class="search-container relative">
+                    <input type="text" id="search-input" class="search-input dark:bg-gray-700 dark:text-white w-full p-4 rounded-full focus:outline-none focus:ring-4 focus:ring-blue-500" placeholder="Søg efter ord, fraser eller emner..." aria-autocomplete="list" aria-controls="autocomplete-list" aria-expanded="false">
+                    <i class="fas fa-search search-icon absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+                </div>
+                <ul id="autocomplete-list" class="absolute top-full left-0 w-full bg-white dark:bg-gray-800 shadow-lg hidden z-10 rounded-md max-h-60 overflow-y-auto" role="listbox"></ul>
+                <div id="search-help" class="text-sm text-gray-600 dark:text-gray-400"></div>
+            </div>
+        </section>
+
+        <section id="search-results" class="mt-8 bg-white dark:bg-gray-800 shadow-lg rounded-md p-6 hidden w-full max-w-2xl">
+            <!-- Search results will be inserted here -->
+        </section>
+
+        <section id="features" class="w-full max-w-4xl mt-12">
+            <h2 class="text-3xl font-bold text-center mb-8">Vores Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="feature-card bg-white dark:bg-gray-700 rounded-lg shadow-md p-6 hover:bg-gray-100 dark:hover:bg-gray-600 transition">
+                    <h3 class="text-xl font-semibold mb-2">AI-Drevet Læringsplan</h3>
+                    <p>Få en personlig læringsplan baseret på dine mål og niveau.</p>
+                </div>
+                <div class="feature-card bg-white dark:bg-gray-700 rounded-lg shadow-md p-6 hover:bg-gray-100 dark:hover:bg-gray-600 transition">
+                    <h3 class="text-xl font-semibold mb-2">Gamification</h3>
+                    <p>Lær sprog gennem sjove udfordringer og konkurrencer.</p>
+                </div>
+                <div class="feature-card bg-white dark:bg-gray-700 rounded-lg shadow-md p-6 hover:bg-gray-100 dark:hover:bg-gray-600 transition">
+                    <h3 class="text-xl font-semibold mb-2">Kontekstuel Ordforklaring</h3>
+                    <p>Se hvordan ord bruges i virkelige sammenhænge.</p>
+                </div>
+                <div class="feature-card bg-white dark:bg-gray-700 rounded-lg shadow-md p-6 hover:bg-gray-100 dark:hover:bg-gray-600 transition">
+                    <h3 class="text-xl font-semibold mb-2">Flersproget Chatbot</h3>
+                    <p>Øv dig i at skrive og tale på forskellige sprog med vores AI.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals and Footer remain the same -->
+
+    <footer class="bg-gray-200 dark:bg-gray-800 py-6 text-center mt-12">
+        <div class="container mx-auto">
+            <p>&copy; 2023 Ordbog AI. Alle rettigheder forbeholdes.</p>
+        </div>
+    </footer>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

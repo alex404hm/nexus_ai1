@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="x-apple-disable-message-reformatting">
+    <title>Email Verification</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9fbfd;
+            color: #333;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        /* Container for the Email */
+        .email-container {
+            max-width: 600px;
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            margin: 40px auto;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        /* Logo Styling */
+        .logo {
+            margin-bottom: 30px;
+        }
+
+        /* Heading and Text Styles */
+        h1 {
+            color: #2E86C1;
+            font-size: 30px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+
+        /* CTA Button Styles */
+        .cta-btn {
+            background-color: #2E86C1;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 25px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+        }
+
+        .cta-btn:hover {
+            background-color: #1f6096;
+            transform: scale(1.05);
+        }
+
+        /* Footer Section */
+        .footer {
+            font-size: 13px;
+            color: #888;
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 30px;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer a {
+            color: #2E86C1;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Illustration Styling */
+        .illustration {
+            margin: 20px auto;
+            width: 200px;
+            border-radius: 12px;
+        }
+
+        /* Mobile Responsiveness */
+        @media screen and (max-width: 600px) {
+            .email-container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .cta-btn {
+                width: 100%;
+                font-size: 16px;
+            }
+
+            .illustration {
+                width: 150px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main Container -->
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td align="center" style="background-color: #f9fbfd; padding: 40px 0;">
+                <!-- Email Container -->
+                <table class="email-container" role="presentation" cellpadding="0" cellspacing="0">
+                    <!-- Logo and Illustration -->
+                    <tr>
+                        <td align="center">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/OpenAI_Logo.svg/1024px-OpenAI_Logo.svg.png" alt="Company Logo" width="100" class="logo">
+                            <img src="https://img.freepik.com/premium-vector/flat-modern-character-received-confirmation-with-check-mark-letter-acceptance-approval_372769-1981.jpg?semt=ais_hybrid" alt="Email Verified" class="illustration">
+                        </td>
+                    </tr>
+
+                    <!-- Header Text -->
+                    <tr>
+                        <td>
+                            <h1>Verify Your Email Address</h1>
+                            <p>You've entered <strong>{{user_email}}</strong> as your email address. Please verify it to complete your account setup and start using our services.</p>
+                        </td>
+                    </tr>
+
+                    <!-- CTA Button -->
+                    <tr>
+                        <td align="center">
+                            <a href="{{verification_link}}" class="cta-btn">Verify Your Email</a>
+                        </td>
+                    </tr>
+
+                    <!-- Information Text -->
+                    <tr>
+                        <td>
+                            <p>If you did not create this account, please disregard this email. This verification link will expire within the next 24 hours for security purposes.</p>
+                        </td>
+                    </tr>
+
+                    <!-- Footer Section -->
+                    <tr>
+                        <td class="footer">
+                            <p>&copy; 2024 Your Company. All rights reserved.</p>
+                            <p>123 Your Street, City, Country | <a href="/privacy">Privacy Policy</a></p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

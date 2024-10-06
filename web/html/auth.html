@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started - Modern Auth</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(90deg, #0A0C2D 50%, #000000 50%);
+        }
+
+        .left-text {
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        .btn-glow {
+            background-color: #3a3aff;
+            transition: all 0.3s ease;
+        }
+
+        .btn-glow:hover {
+            background-color: #5b5bff;
+            transform: scale(1.1);
+            box-shadow: 0px 0px 15px rgba(90, 90, 255, 0.6);
+        }
+
+        /* Keyframe animation for text fade-in */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .footer a {
+            color: rgba(255, 255, 255, 0.6);
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .centered {
+            position: absolute;
+            bottom: 30px;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="h-screen gradient-bg flex items-center justify-center">
+
+    <!-- Left Section: Text Animation -->
+    <div class="w-1/2 p-12 text-white left-text">
+        <h1 class="text-4xl font-bold mb-4 text-purple-400">Write a text</h1>
+        <p class="text-xl text-gray-400">
+            that goes with a kitten gif for a friend having a rough day.
+        </p>
+    </div>
+
+    <!-- Right Section: Auth Buttons -->
+    <div class="w-1/2 flex flex-col items-center justify-center h-full bg-black relative">
+        <div class="mb-8">
+            <h2 class="text-white text-4xl font-semibold text-center mb-8">Get started</h2>
+            <div class="flex flex-col gap-4 w-64">
+                <a href="/login" class="px-6 py-4 text-white font-bold text-lg rounded-md btn-glow text-center">
+                    Log in
+                </a>
+                <a href="/signup" class="px-6 py-4 text-white font-bold text-lg rounded-md btn-glow text-center">
+                    Sign up
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="centered footer text-sm">
+            <a href="/terms" class="mr-4">Terms of use</a>
+            <a href="/privacy">Privacy policy</a>
+        </div>
+    </div>
+
+</body>
+
+</html>
